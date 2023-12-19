@@ -11,7 +11,7 @@ class WeatherPage extends StatefulWidget {
 }
 
 class _WeatherPageState extends State<WeatherPage> {
-  final _weatherService = WeatherService('6954a8e452661acddbe834a136c5b787');
+  final _weatherService = WeatherService('cbe98178fd589e99f2e0f03fa5dfc2b4');
   Weather? _weather;
 
   _fetchWeather() async {
@@ -28,8 +28,9 @@ class _WeatherPageState extends State<WeatherPage> {
 
 //Weather Animations
   String getWeatherAnimation(String? mainCondition) {
-    if (mainCondition == null)
+    if (mainCondition == null) {
       return 'assets/sunny.json'; //default otomatis ke sunny
+    }
 
     switch (mainCondition.toLowerCase()) {
       case 'clouds':
@@ -85,6 +86,8 @@ class _WeatherPageState extends State<WeatherPage> {
 }
 
 class Rectangle9 extends StatelessWidget {
+  const Rectangle9({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -93,7 +96,7 @@ class Rectangle9 extends StatelessWidget {
           width: 390,
           height: 606,
           decoration: ShapeDecoration(
-            color: Color(0xFF67F0DF),
+            color: const Color(0xFF67F0DF),
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(9)),
           ),
