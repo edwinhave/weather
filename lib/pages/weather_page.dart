@@ -74,31 +74,53 @@ class _WeatherPageState extends State<WeatherPage> {
             Text('${_weather?.temperature.round()}°C'),
 
             //Weather Condition
-            Text(_weather?.mainCondition ?? "")
+            Text(_weather?.mainCondition ?? ""),
+            const SizedBox(height: 32),
+
+            Container(
+              width: 300,
+              height: 60,
+              decoration: ShapeDecoration(
+                color: const Color.fromARGB(255, 80, 185, 173),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(9),
+                ),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    _weather?.cityName ?? "Loading City..",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                    ),
+                  ),
+                  Lottie.asset(
+                    getWeatherAnimation(_weather?.mainCondition),
+                    height: 30, // You can customize the height
+                    width: 30, // You can customize the width
+                  ),
+                  Text(
+                    '${_weather?.temperature.round()}°C',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                    ),
+                  ),
+                  Text(
+                    _weather?.mainCondition ?? "",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                    ),
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),
-    );
-  }
-}
-
-class Rectangle9 extends StatelessWidget {
-  const Rectangle9({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          width: 390,
-          height: 606,
-          decoration: ShapeDecoration(
-            color: const Color(0xFF67F0DF),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(9)),
-          ),
-        ),
-      ],
     );
   }
 }
